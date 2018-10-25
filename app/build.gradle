@@ -35,6 +35,7 @@ dependencies {
 
     //room
     implementation roomDependencies.extensions
+    implementation roomDependencies.pagin
     implementation roomDependencies.viewModel
     implementation roomDependencies.liveData
     annotationProcessor roomDependencies.compiler

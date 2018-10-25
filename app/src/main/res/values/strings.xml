@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="activity_main.lbl.player">Player</string>
+    <string name="activity_main.lbl.player_one_wins">P1 wins: </string>
+    <string name="activity_main.lbl.draws">Draws:</string>
+    <string name="activity_main.lbl.player_two_wins">P2 wins:</string>
+    <string name="activity_main.btn.restart">Restart</string>
+    <string name="activity_main.btn.clean_scoreboard">Clean scoreboard</string>
+
+    <string name="activity_main.end_game_dialog.title">Game has ended</string>
+    <string name="activity_main.end_game_dialog.win_msg">Winner is %s</string>
+    <string name="activity_main.end_game_dialog.draw_msg">No one won</string>
+    <string name="activity_main.end_game_dialog.btn_restart">Restart</string>
+    <string name="activity_main.end_game_dialog.btn_ok">Ok</string>
+</resources>

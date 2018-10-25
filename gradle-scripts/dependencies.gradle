@@ -1,0 +1,47 @@
+ext {
+    //Versions
+    supportVersion = '28.0.0'
+    constraintLayout = '1.1.3'
+    junit = '4.12'
+    testRunner = '1.0.2'
+    testEspresso = '3.0.2'
+    room = '1.0.0'
+    archLifecycle = '1.1.1'
+
+    //Packages
+    supportPackage = 'com.android.support'
+    constraintLayoutPackage = 'com.android.support.constraint'
+    junitPackage = 'junit'
+    testPackage = 'com.android.support.test'
+    espressoPackage= 'com.android.support.test.espresso'
+    roomPackage = 'android.arch.persistence.room'
+    archLifecyclePackage = 'android.arch.lifecycle'
+
+    //Dependencies
+    supportDependencies = [
+            appCompat  : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            design     : buildDependency(supportPackage, 'design', supportVersion),
+            constraintLayout : buildDependency(constraintLayoutPackage, 'constraint-layout', constraintLayout),
+            gridLayout : buildDependency(supportPackage, 'gridlayout-v7', supportVersion)
+    ]
+
+    testingDependencies = [
+            junit : buildDependency(junitPackage, 'junit', junit),
+            runner : buildDependency(testPackage, 'runner', testRunner),
+            espresso : buildDependency(espressoPackage, 'espresso-core', testEspresso)
+    ]
+
+    roomDependencies = [
+            room : buildDependency(roomPackage, 'runtime', room),
+            roomProcessor : buildDependency(roomPackage, 'compiler', room),
+            extensions : buildDependency(archLifecyclePackage, 'extensions', archLifecycle),
+            viewModel : buildDependency(archLifecyclePackage, 'viewmodel', archLifecycle),
+            liveData : buildDependency(archLifecyclePackage, 'livedata', archLifecycle),
+            compiler : buildDependency(archLifecyclePackage, 'compiler', archLifecycle)
+    ]
+
+}
+
+static String buildDependency(String pack, String dependency, String version){
+    return "${pack}:${dependency}:${version}"
+}

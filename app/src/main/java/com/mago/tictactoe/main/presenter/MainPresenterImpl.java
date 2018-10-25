@@ -40,6 +40,11 @@ public class MainPresenterImpl implements MainPresenter, MainInteractor.OnEventL
     }
 
     @Override
+    public void drawActualPlayer(String actualPlayer) {
+        mainView.drawActualPlayer(actualPlayer);
+    }
+
+    @Override
     public void showGameEnded(String winner) {
         mainView.showGameEnded(winner);
     }

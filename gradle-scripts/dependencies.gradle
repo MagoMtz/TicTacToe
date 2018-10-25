@@ -6,7 +6,7 @@ ext {
     testRunner = '1.0.2'
     testEspresso = '3.0.2'
     room = '1.0.0'
-    roomPaginV = '1.0.0-alpha7'
+    roomPagin = '1.0.0-alpha7'
     archLifecycle = '1.1.1'
 
     //Packages

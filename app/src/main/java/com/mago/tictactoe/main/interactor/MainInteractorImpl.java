@@ -2,11 +2,11 @@ package com.mago.tictactoe.main.interactor;
 
 import android.content.Context;
 
-import com.mago.tictactoe.db.AppDataBase;
 import com.mago.tictactoe.main.entities.Cell;
 import com.mago.tictactoe.main.entities.Game;
 import com.mago.tictactoe.main.entities.Player;
 import com.mago.tictactoe.main.presenter.MainPresenter;
+import com.mago.tictactoe.util.GameScorePreference;
 
 /**
  * Created by jorgemartinez on 25/10/18.
@@ -17,7 +17,7 @@ public class MainInteractorImpl implements MainInteractor{
     private Player winner;
 
     private MainPresenter presenter;
-    private AppDataBase dataBase;
+    private GameScorePreference scorePreferences;
 
     public MainInteractorImpl(Game game, MainPresenter presenter, Context context) {
         this.game = game;
@@ -25,7 +25,7 @@ public class MainInteractorImpl implements MainInteractor{
         winner = new Player();
 
         this.presenter = presenter;
-        //dataBase = AppDataBase.getInstance(context);
+        scorePreferences = new GameScorePreference(context);
     }
 
     @Override
@@ -34,6 +34,7 @@ public class MainInteractorImpl implements MainInteractor{
             game.getBoard()[row][col] = new Cell(game.getCurrentPlayer());
             cells[row][col] = new Cell(game.getCurrentPlayer());
             presenter.drawCell(game.getCurrentPlayer().getValue());
+            presenter.drawActualPlayer(game.getCurrentPlayer().getName());
             if (hasGameEnded()) {
                 if (winner != null) {
                     gameEnded(true, onEventListener);
@@ -56,8 +57,13 @@ public class MainInteractorImpl implements MainInteractor{
 
     private void gameEnded(boolean gotWinner, OnEventListener onEventListener){
         if (gotWinner) {
+            if (winner.getName().equals("1"))
+                scorePreferences.addPointPlayer1();
+            else
+                scorePreferences.addPointPlayer2();
             onEventListener.showGameEnded(winner.getName());
         } else {
+            scorePreferences.addPointDraw();
             onEventListener.showGameEnded("");
         }
 

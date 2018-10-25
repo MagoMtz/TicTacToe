@@ -11,4 +11,5 @@ public interface MainPresenter {
     void onDestroy();
 
     void drawCell(String value);
+    void drawActualPlayer(String actualPlayer);
 }

@@ -5,23 +5,25 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.mago.tictactoe.R;
 import com.mago.tictactoe.databinding.ActivityMainBinding;
 import com.mago.tictactoe.main.entities.Game;
 import com.mago.tictactoe.main.presenter.MainPresenter;
 import com.mago.tictactoe.main.presenter.MainPresenterImpl;
+import com.mago.tictactoe.util.GameScorePreference;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     private ActivityMainBinding view;
     private MainPresenter presenter;
     private Button button;
+    private GameScorePreference scorePreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        scorePreference = new GameScorePreference(this);
         Game game = new Game("1", "2");
         presenter = new MainPresenterImpl(this, game, this);
 
@@ -31,13 +33,26 @@ public class MainActivity extends AppCompatActivity implements MainView {
             restartGame();
             cleanBoard();
         });
+        view.btnCleanScoreboard.setOnClickListener((view) -> {
+            resetScoreBoard();
+        });
         setClickListeners();
+        drawScore();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    private void drawScore(){
+        int p1Score = scorePreference.getPlayer1Score();
+        int p2Score = scorePreference.getPlayer2Score();
+        int drawScore = scorePreference.getDrawScore();
+        view.lblP1Score.setText(String.valueOf(p1Score));
+        view.lblP2Score.setText(String.valueOf(p2Score));
+        view.lblDrawScore.setText(String.valueOf(drawScore));
     }
 
     private void setClickListeners(){
@@ -96,14 +111,31 @@ public class MainActivity extends AppCompatActivity implements MainView {
         view.cell33.setText(null);
     }
 
+    private void resetScoreBoard(){
+        scorePreference.clearData();
+        view.lblP1Score.setText("0");
+        view.lblP2Score.setText("0");
+        view.lblDrawScore.setText("0");
+        view.lblActualPlayer.setText("1");
+        restartGame();
+        cleanBoard();
+    }
+
     @Override
     public void showGameEnded(String winner) {
         showGameEndedDialog(winner);
+        drawScore();
     }
 
     @Override
     public void drawCell(String value) {
         button.setText(value);
+    }
+
+    @Override
+    public void drawActualPlayer(String actualPlayer) {
+        actualPlayer = actualPlayer.equals("1") ? "2" : "1";
+        view.lblActualPlayer.setText(actualPlayer);
     }
 
     private void showGameEndedDialog(String winner){

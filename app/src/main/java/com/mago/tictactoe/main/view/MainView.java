@@ -7,4 +7,5 @@ public interface MainView {
     void showGameEnded(String winner);
 
     void drawCell(String value);
+    void drawActualPlayer(String actualPlayer);
 }

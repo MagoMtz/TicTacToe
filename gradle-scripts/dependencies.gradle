@@ -31,17 +31,7 @@ ext {
             runner : buildDependency(testPackage, 'runner', testRunner),
             espresso : buildDependency(espressoPackage, 'espresso-core', testEspresso)
     ]
-
-    roomDependencies = [
-            room : buildDependency(roomPackage, 'runtime', room),
-            roomProcessor : buildDependency(roomPackage, 'compiler', room),
-            extensions : buildDependency(archLifecyclePackage, 'extensions', archLifecycle),
-            viewModel : buildDependency(archLifecyclePackage, 'viewmodel', archLifecycle),
-            liveData : buildDependency(archLifecyclePackage, 'livedata', archLifecycle),
-            compiler : buildDependency(archLifecyclePackage, 'compiler', archLifecycle),
-            pagin : buildDependency(archLifecyclePackage, 'runtime', roomPagin)
-    ]
-
+    
 }
 
 static String buildDependency(String pack, String dependency, String version){

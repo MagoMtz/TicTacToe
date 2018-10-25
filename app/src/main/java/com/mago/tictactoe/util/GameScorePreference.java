@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
  * Created by jorgemartinez on 25/10/18.
  */
 public class GameScorePreference {
-    private Context context;
-
     private static final String SCORE_BOARD = "score_board";
     private static final String PLAYER1 = "player1";
     private static final String PLAYER2 = "player2";
@@ -18,7 +16,6 @@ public class GameScorePreference {
     private SharedPreferences.Editor editor;
 
     public GameScorePreference(Context context) {
-        this.context = context;
         scorePref = context.getSharedPreferences(SCORE_BOARD, Context.MODE_PRIVATE);
         editor = scorePref.edit();
     }

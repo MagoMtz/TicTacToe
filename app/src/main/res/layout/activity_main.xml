@@ -25,12 +25,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:text="@string/activity_main.lbl.player"/>
 
             <TextView
                 android:id="@+id/lbl_actual_player"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="8dp"
                 android:text="1"/>
 
@@ -43,6 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="8dp"
                 android:text="@string/activity_main.lbl.player_one_wins"/>
 
@@ -50,12 +53,14 @@
                 android:id="@+id/lbl_p1_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="8dp"
                 tools:text="1"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="16dp"
                 android:text="@string/activity_main.lbl.draws"/>
 
@@ -63,12 +68,14 @@
                 android:id="@+id/lbl_draw_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="8dp"
                 tools:text="1"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="16dp"
                 android:text="@string/activity_main.lbl.player_two_wins"/>
 
@@ -76,6 +83,7 @@
                 android:id="@+id/lbl_p2_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/label"
                 android:layout_marginStart="8dp"
                 tools:text="1"/>
 

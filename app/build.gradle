@@ -33,16 +33,6 @@ dependencies {
     implementation supportDependencies.gridLayout
     implementation supportDependencies.design
 
-    
-    /*
-    implementation roomDependencies.extensions
-    implementation roomDependencies.pagin
-    implementation roomDependencies.viewModel
-    implementation roomDependencies.liveData
-    annotationProcessor roomDependencies.compiler
-    implementation roomDependencies.room
-    annotationProcessor roomDependencies.roomProcessor
-    */
     testImplementation testingDependencies.junit
     androidTestImplementation testingDependencies.runner
     androidTestImplementation testingDependencies.espresso
